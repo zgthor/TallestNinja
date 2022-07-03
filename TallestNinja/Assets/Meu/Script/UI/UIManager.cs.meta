@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 60bcee2ad1377564488d4a1d25e13fc6
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - GameOver: {fileID: 2364835115198660748, guid: ba2780a0201638548b869860c0b1c45a, type: 3}
+  - scoreText: {instanceID: 0}
+  - HighScoreText: {instanceID: 0}
+  - pointsText: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
