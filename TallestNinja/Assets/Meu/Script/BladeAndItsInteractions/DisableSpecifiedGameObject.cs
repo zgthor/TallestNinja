@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DestroySpecifiedTag : MonoBehaviour
+public class DisableSpecifiedGameObject : MonoBehaviour
 {
     [SerializeField] GameObject[] gameObjectsToDestroy;
     List<string> gameObjectsNames = new List<string>();
     string alteredName;
-    [SerializeField]  GameObject objectToReport;
+    [SerializeField] GameObject objectToReport;
     void Start()
     {
         foreach(GameObject part in gameObjectsToDestroy)
@@ -17,7 +17,7 @@ public class DestroySpecifiedTag : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (ObjectCollidedWithPartToDestroy(other))
+        if (ObjectCollidedWithObjectToDisable(other))
         {
             other.gameObject.SetActive(false);
             if(ObjectShouldBeReported(other))
@@ -26,7 +26,7 @@ public class DestroySpecifiedTag : MonoBehaviour
             }
         }
     }
-    bool ObjectCollidedWithPartToDestroy(Collider collided)
+    bool ObjectCollidedWithObjectToDisable(Collider collided)
     {
         foreach(string name in gameObjectsNames)
         {            

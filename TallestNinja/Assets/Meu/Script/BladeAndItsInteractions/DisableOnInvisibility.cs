@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DestroyOnInvisibility : MonoBehaviour
+public class DisableOnInvisibility : MonoBehaviour
 {
     bool isVisible = true;
-    [SerializeField] float timeToDestroyOnInvisibility;
+    [SerializeField] float timeToDestroyOnInvisibility = 0.5f;
     float timeToDestroyOnInvisibilityCounter;
+    [SerializeField] bool reportIfDisabled = false;
     private void OnBecameInvisible()
     {
         isVisible = false;
@@ -25,9 +26,13 @@ public class DestroyOnInvisibility : MonoBehaviour
         {
             CountDown();
         }
-        if(CountDownFineshed())
+        if(CountDownFinished())
         {
-            Destroy(gameObject);
+            if(reportIfDisabled)
+            {
+                GameManager.Instance.FruitFallen();
+            }
+            gameObject.SetActive(false);
         }
     }
     void CountDown()
@@ -35,7 +40,7 @@ public class DestroyOnInvisibility : MonoBehaviour
         timeToDestroyOnInvisibilityCounter -= Time.deltaTime;
 
     }
-    bool CountDownFineshed()
+    bool CountDownFinished()
     {
         return timeToDestroyOnInvisibilityCounter <= 0;
     }

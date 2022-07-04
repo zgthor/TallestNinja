@@ -28,7 +28,6 @@ public class GameManager : MonoBehaviour
         if(ThereIsNoGameManagerSingleton())
         {
             InstantiateGameManagerSingleton();
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
