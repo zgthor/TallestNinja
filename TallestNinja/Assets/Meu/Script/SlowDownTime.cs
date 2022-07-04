@@ -25,7 +25,7 @@ public class SlowDownTime : MonoBehaviour
     }
     bool IsGamePause()
     {
-        return Time.timeScale <= 0.01f;
+        return Time.timeScale <= 0.025f;
     }
     void LowerTime()
     {

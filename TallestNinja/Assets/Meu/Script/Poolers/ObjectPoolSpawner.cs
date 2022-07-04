@@ -84,7 +84,7 @@ public class ObjectPoolSpawner : MonoBehaviour
     }
     bool IsThereOneOrMoreGameObjectInNameList()
     {
-        return gameObjectsNameList.Count >= 1 && name == gameObjectsNameList[key];
+        return gameObjectsNameList.Count >= 1;
     }
     bool DoTheNamesMatch()
     {

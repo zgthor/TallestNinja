@@ -16,8 +16,8 @@ public class Fruit : HitableByRay
     int bottomSpriteKey;
     private void Start()
     {
-        slicedFruitKey = GetKeyFromPool(slicedFruitKey, slicedFruit);
-        bottomSpriteKey = GetKeyFromPool(bottomSpriteKey, bottomGameObject);
+        slicedFruitKey = GetKeyFromPool(slicedFruit);
+        bottomSpriteKey = GetKeyFromPool(bottomGameObject);
         GetComponents();
         hitByRay = false;
     }
@@ -25,7 +25,7 @@ public class Fruit : HitableByRay
     {
         hitByRay = false;
     }
-    int GetKeyFromPool(int key, GameObject objectToGetKey)
+    int GetKeyFromPool(GameObject objectToGetKey)
     {
         return ObjectPoolSpawner.Instance.GetKey(objectToGetKey);
     }
