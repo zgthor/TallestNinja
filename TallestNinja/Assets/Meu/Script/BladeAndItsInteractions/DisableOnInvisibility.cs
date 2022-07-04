@@ -38,7 +38,6 @@ public class DisableOnInvisibility : MonoBehaviour
     void CountDown()
     {
         timeToDestroyOnInvisibilityCounter -= Time.deltaTime;
-
     }
     bool CountDownFinished()
     {

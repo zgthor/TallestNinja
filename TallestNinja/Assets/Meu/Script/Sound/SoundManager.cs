@@ -9,17 +9,28 @@ public class SoundManager : MonoBehaviour
 
     private void Start() 
     {
-        if(Instance == null)
+        if(ThereIsNoGameManagerSingleton())
         {
-            Instance = this;
+            InstantiateGameManagerSingleton();
             DontDestroyOnLoad(gameObject);
         }
-        else{
-            Destroy(gameObject);
+        else
+        {
+            Destroy(this);
         }
     }
+    bool ThereIsNoGameManagerSingleton()
+    {
+        return Instance == null;
+    }
+    void InstantiateGameManagerSingleton()
+    {
+        Instance = this;
+    }
+    
     public void PlaySound(AudioClip clip)
     {
+        Debug.Log(clip.name);
         effectsSource.PlayOneShot(clip);
     }
 }

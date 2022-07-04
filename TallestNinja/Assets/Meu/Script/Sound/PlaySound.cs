@@ -11,7 +11,6 @@ public class PlaySound : MonoBehaviour
     }
         public void PlaySpecifiedSound(AudioClip audioClip)
     {
-        Debug.Log(audioClip.name);
         SoundManager.Instance.PlaySound(audioClip);
     }
 }

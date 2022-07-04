@@ -10,7 +10,6 @@ public class Fruit : HitableByRay
     [SerializeField] float forceRange;
     [SerializeField] int pointAmount;
     GameManager myGameManager;
-    [SerializeField] ObjectPoolSpawner pooler;
     GameObject instantiated;
     Rigidbody[] rgbdOnSliced;
     [SerializeField] GameObject bottomGameObject;
@@ -28,7 +27,7 @@ public class Fruit : HitableByRay
     }
     int GetKeyFromPool(int key, GameObject objectToGetKey)
     {
-        return pooler.GetKey(objectToGetKey);
+        return ObjectPoolSpawner.Instance.GetKey(objectToGetKey);
     }
     void GetComponents()
     {
@@ -59,7 +58,7 @@ public class Fruit : HitableByRay
     }
     void InstantiateObjectFromPool(int key)
     {
-        instantiated = pooler.GetObjectFromPool(key);
+        instantiated = ObjectPoolSpawner.Instance.GetObjectFromPool(key);
     }
     void ResetPositionOfInstantiatedObjectFromPool()
     {

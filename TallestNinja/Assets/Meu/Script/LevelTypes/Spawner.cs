@@ -16,7 +16,6 @@ public class Spawner : MonoBehaviour
     List <int> fruitKeys = new List<int>();
     List<int> bombKeys = new List<int>();
     List<int> powerUpKeys = new List<int>();
-    [SerializeField] ObjectPoolSpawner pooler;
     [SerializeField] Vector3 spawnPosition;
     Rigidbody instantiatedRigidBody;
     public bool spawnConditionMet;
@@ -38,15 +37,15 @@ public class Spawner : MonoBehaviour
     {
         for (int i = 0; i < fruitsToSpawn.Length; i++)
         {
-            fruitKeys.Add(pooler.GetKey(fruitsToSpawn[i]));
+            fruitKeys.Add(ObjectPoolSpawner.Instance.GetKey(fruitsToSpawn[i]));
         }
         for (int i = 0; i < bombsToSpawn.Length; i++)
         {
-            bombKeys.Add(pooler.GetKey(bombsToSpawn[i]));
+            bombKeys.Add(ObjectPoolSpawner.Instance.GetKey(bombsToSpawn[i]));
         }
         for (int i = 0; i < powerUpsToSpawn.Length; i++)
         {
-            powerUpKeys.Add(pooler.GetKey(powerUpsToSpawn[i]));
+            powerUpKeys.Add(ObjectPoolSpawner.Instance.GetKey(powerUpsToSpawn[i]));
         }
     }
     void Update()
@@ -81,7 +80,7 @@ public class Spawner : MonoBehaviour
     }
     void PoolInFruitFromPoolFromKey()
     {
-        instantiated = pooler.GetObjectFromPool(fruitKeys[Random.Range(0, fruitKeys.Count - 1)]);
+        instantiated = ObjectPoolSpawner.Instance.GetObjectFromPool(fruitKeys[Random.Range(0, fruitKeys.Count - 1)]);
     }
     void SetInstantiatedPosition()
     {
@@ -93,7 +92,7 @@ public class Spawner : MonoBehaviour
     }
     void PoolInBombFromPoolFromKey()
     {
-        instantiated = pooler.GetObjectFromPool(bombKeys[Random.Range(0, fruitKeys.Count - 1)]);
+        instantiated = ObjectPoolSpawner.Instance.GetObjectFromPool(bombKeys[Random.Range(0, fruitKeys.Count - 1)]);
     }
     void TimerCountDown()
     {
@@ -123,6 +122,6 @@ public class Spawner : MonoBehaviour
     }
     void PoolInPowerUpFromPoolFromKey()
     {
-        instantiated = pooler.GetObjectFromPool(powerUpKeys[Random.Range(0, powerUpKeys.Count - 1)]);
+        instantiated = ObjectPoolSpawner.Instance.GetObjectFromPool(powerUpKeys[Random.Range(0, powerUpKeys.Count - 1)]);
     }
 }

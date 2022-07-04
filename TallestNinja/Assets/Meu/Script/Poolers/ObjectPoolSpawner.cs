@@ -13,15 +13,45 @@ public class ObjectPoolSpawner : MonoBehaviour
     GameObject currentGameObjectUndergoingKeyEvaluation;
     string currentGameObjectsNameUndergoingKeyEvaluation;
     GameObject newObject;
+    public static ObjectPoolSpawner Instance;
     void Awake()
     {
+        if(ThereIsNoGameManagerSingleton())
+        {
+            InstantiateGameManagerSingleton();
+        }
+        else
+        {
+            Destroy(this);
+            return;
+        }
+        CreateLists();
+        WipeLists();
+        CreateParentObjectForPools();
+    }
+    void CreateLists()
+    {
         listOfLists = new List<List<GameObject>>();
-        listOfLists.Clear();
         gameObjectList = new List<GameObject>();
-        gameObjectList.Clear();
         gameObjectsNameList = new List<string>();
+    }
+    void WipeLists()
+    {
+        listOfLists.Clear();
+        gameObjectList.Clear();
         gameObjectsNameList.Clear();
+    }
+    void CreateParentObjectForPools()
+    {
         parentObject = new GameObject("Pool");
+    }
+    bool ThereIsNoGameManagerSingleton()
+    {
+        return Instance == null;
+    }
+    void InstantiateGameManagerSingleton()
+    {
+        Instance = this;
     }
     public int GetKey(GameObject importedGO)
     {
