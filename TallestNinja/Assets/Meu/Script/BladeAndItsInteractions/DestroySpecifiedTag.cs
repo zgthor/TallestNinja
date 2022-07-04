@@ -5,7 +5,6 @@ using UnityEngine;
 public class DestroySpecifiedTag : MonoBehaviour
 {
     [SerializeField] GameObject[] gameObjectsToDestroy;
-    [SerializeField] GameManager gameManager;
     List<string> gameObjectsNames = new List<string>();
     string alteredName;
     [SerializeField]  GameObject objectToReport;
@@ -49,6 +48,6 @@ public class DestroySpecifiedTag : MonoBehaviour
     }
     void ReportObjectDisabledness()
     {
-        gameManager.FruitFallen();
+        GameManager.Instance.FruitFallen();
     }
 }

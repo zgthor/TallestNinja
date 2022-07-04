@@ -5,8 +5,7 @@ using UnityEngine;
 public class DestroyOnInvisibility : MonoBehaviour
 {
     bool isVisible = true;
-    [SerializeField]
-    float timeToDestroyOnInvisibility;
+    [SerializeField] float timeToDestroyOnInvisibility;
     float timeToDestroyOnInvisibilityCounter;
     private void OnBecameInvisible()
     {

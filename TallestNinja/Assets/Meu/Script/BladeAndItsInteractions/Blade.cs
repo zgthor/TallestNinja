@@ -12,12 +12,9 @@ public class Blade : MonoBehaviour
     int indexX;
     int indexY;
     int indexZ;
-    [SerializeField]
-    float minDistance;
-    [SerializeField]
-    float playAreaZVector = 0;
-    [SerializeField]
-    float verticesAccuracy = 7; // currently hard coded
+    [SerializeField] float minDistance;
+    [SerializeField] float playAreaZVector = 0;
+    [SerializeField] float verticesAccuracy = 7; // currently hard coded
     Vector3 mousePos;
     private void Start()
     {

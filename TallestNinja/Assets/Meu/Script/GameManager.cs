@@ -5,7 +5,7 @@ public class GameManager : MonoBehaviour
 {
     public int score;
     public int highScore;
-    TimeManagementClass timeManagementClass;
+    SlowDownTime timeManagementClass;
     PointsManager pointsManager;
     UIManager uIManager;
     [SerializeField] GameObject blade;
@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
     void GetClassComponents()
     {
         pointsManager = GetComponent<PointsManager>();
-        timeManagementClass = GetComponent<TimeManagementClass>();
+        timeManagementClass = GetComponent<SlowDownTime>();
         uIManager = GetComponent<UIManager>();
         healthManager = GetComponent<HealthManager>();
         comboCounter = GetComponent<ComboCounter>();

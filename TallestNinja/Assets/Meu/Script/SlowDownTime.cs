@@ -1,9 +1,8 @@
 using System.Collections;
 using UnityEngine;
 
-public class TimeManagementClass : MonoBehaviour
+public class SlowDownTime : MonoBehaviour
 {
-    TimeManagementClass thisClass;
     private void Awake()
     {
         UnpauseGame();
@@ -21,7 +20,6 @@ public class TimeManagementClass : MonoBehaviour
         else
         {
             PauseGame();
-            GetThisClassReference();
             DisableThisClass();
         }
     }
@@ -37,12 +35,8 @@ public class TimeManagementClass : MonoBehaviour
     {
         Time.timeScale = 0;
     }
-    void GetThisClassReference()
-    {
-        thisClass = gameObject.GetComponent<TimeManagementClass>();
-    }
     void DisableThisClass()
     {
-        thisClass.enabled = false;
+        this.enabled = false;
     }
 }
