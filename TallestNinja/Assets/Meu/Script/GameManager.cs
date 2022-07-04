@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     PointsManager pointsManager;
     UIManager uIManager;
     [SerializeField] GameObject blade;
+    public static GameManager Instance;
     HealthManager healthManager;
     bool losingSequenceStarted;
     ComboCounter comboCounter;
@@ -24,6 +25,23 @@ public class GameManager : MonoBehaviour
     {
         GetClassComponents();
         GetHighScore();
+        if(ThereIsNoGameManagerSingleton())
+        {
+            InstantiateGameManagerSingleton();
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(this);
+        }
+    }
+    bool ThereIsNoGameManagerSingleton()
+    {
+        return Instance == null;
+    }
+    void InstantiateGameManagerSingleton()
+    {
+        Instance = this;
     }
     void GetClassComponents()
     {

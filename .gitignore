@@ -70,3 +70,8 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+TallestNinja/Library/
+TallestNinja/Logs/
+TallestNinja/Temp/PropertyDatabase_2066312223
+TallestNinja/Temp/
+TallestNinja/obj/Debug/Assembly-CSharp.csproj.AssemblyReference.cache
