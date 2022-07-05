@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DisableIfChildrenInvisible : MonoBehaviour
+public class DisableIfChildrenInvisibleAndResetIt : MonoBehaviour
 { // in the future switch this to an event that will be fired from a event manager class which this class will be subscribed to
+// in the future find a way to separate this class in more parts
     Transform[] transformArray;
     List <Transform> transformList = new List<Transform>();
     static List <Vector3> originalPositions = new List<Vector3>();
@@ -36,14 +37,7 @@ public class DisableIfChildrenInvisible : MonoBehaviour
             originalPositions.Add(transformList[i].localPosition);   
         }        
     }
-    void ResetPositions()
-    {
-        for(int i = 0; i <= transformList.Count -1; i++)
-        {
-            transformList[i].localPosition = originalPositions[i];
-            transformList[i].localRotation = Quaternion.identity;
-        }
-    }
+
     void ResetTimer()
     {
         timerCountDown = timeToDisable;
@@ -63,7 +57,7 @@ public class DisableIfChildrenInvisible : MonoBehaviour
             ResetTimer();
             if(!ActiveObjectsInTransformArray())
             {
-                DisableGameObject();
+                gameObject.SetActive(false);
             }
         }
     }
@@ -78,12 +72,11 @@ public class DisableIfChildrenInvisible : MonoBehaviour
        }
        return false;
     }
-    void DisableGameObject()
+    void OnDisable()
     {
         ResetRigidBodyVelocity();        
         ResetTimer();
         ResetPositions();
-        gameObject.SetActive(false);
     }
     void ResetRigidBodyVelocity()
     {
@@ -92,4 +85,12 @@ public class DisableIfChildrenInvisible : MonoBehaviour
             child.velocity = Vector3.zero;
         }
     }   
+        void ResetPositions()
+    {
+        for(int i = 0; i <= transformList.Count -1; i++)
+        {
+            transformList[i].localPosition = originalPositions[i];
+            transformList[i].localRotation = Quaternion.identity;
+        }
+    }
 }
