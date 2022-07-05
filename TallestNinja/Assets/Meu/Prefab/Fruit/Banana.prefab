@@ -130,10 +130,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slicedFruit: {fileID: 3667045119740171643, guid: 11eed91e05ba4e1478f8122b64767ce7, type: 3}
-  force: 500
-  forceRange: 2
+  force: 500000
+  forceRange: 2000
   pointAmount: 3
-  pooler: {fileID: 2757792092255993895, guid: 1923ddf1c2048c841a62614181ab0e13, type: 3}
   bottomGameObject: {fileID: 761187797000434380, guid: 118facf49f17ea841820f8c3c77ca2a2, type: 3}
 --- !u!114 &4774010094227307850
 MonoBehaviour:

@@ -52,18 +52,13 @@ public class Fruit : HitableByRay
     public override void TargetObject()
     {
         //InstantiateObjectFromPool(bottomSpriteKey);
-        //ResetPositionOfInstantiatedObjectFromPool();
+        //SetPositionOfInstantiatedObjectFromPool();
         //StickGameObject();
         //instantiated.SetActive(true);
     }
     void InstantiateObjectFromPool(int key)
     {
         instantiated = ObjectPoolSpawner.Instance.GetObjectFromPool(key);
-    }
-    void ResetPositionOfInstantiatedObjectFromPool()
-    {
-        instantiated.transform.position = transform.position;
-        instantiated.transform.rotation = Quaternion.identity;
     }
     void SetPositionOfInstantiatedObjectFromPool()
     {
@@ -76,14 +71,20 @@ public class Fruit : HitableByRay
     }
     void GetRigidbodyArrayOfInstantiatedObject()
     {
-        rgbdOnSliced = instantiated.transform.GetComponentsInChildren<Rigidbody>();
+        rgbdOnSliced = instantiated.transform.GetComponentsInChildren<Rigidbody>(true);
     }
     void MakeAnExplosiveMotionForRigidbodies()
     {
         foreach (Rigidbody rgdbd in rgbdOnSliced)
         {
-            rgdbd.transform.rotation = Random.rotation;
-            rgdbd.AddExplosionForce(Random.Range(force, force * forceRange), transform.position, 5f);
+            Debug.Log(rgdbd.name);
+            if(rgdbd != rgbdOnSliced[0])
+            {
+                Debug.Log(rgdbd.name + "aaa");
+                rgdbd.transform.rotation = Random.rotation;
+                rgdbd.AddExplosionForce(Random.Range(force, force * forceRange), transform.position, 5f);
+            }
+
         }
     }
     void UpdateScore()

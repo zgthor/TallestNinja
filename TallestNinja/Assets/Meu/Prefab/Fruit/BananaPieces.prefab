@@ -57,6 +57,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToDestroyOnInvisibility: 0.5
+  reportIfDisabled: 0
 --- !u!23 &2206496538523630774
 MeshRenderer:
   m_ObjectHideFlags: 0

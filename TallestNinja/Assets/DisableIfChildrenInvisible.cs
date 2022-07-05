@@ -18,7 +18,6 @@ public class DisableIfChildrenInvisible : MonoBehaviour
     private void OnEnable() 
     {
         ResetTimer();
-        ResetPositions();
         EnableChildren();
     }
         void GetTransforms()
@@ -42,7 +41,7 @@ public class DisableIfChildrenInvisible : MonoBehaviour
         for(int i = 0; i <= transformList.Count -1; i++)
         {
             transformList[i].localPosition = originalPositions[i];
-            Debug.Log("a");
+            transformList[i].localRotation = Quaternion.identity;
         }
     }
     void ResetTimer()
@@ -70,9 +69,9 @@ public class DisableIfChildrenInvisible : MonoBehaviour
     }
     bool ActiveObjectsInTransformArray()
     {
-       foreach (Transform item in transformArray)
+       foreach (Transform item in transformList)
        {
-        if(item.gameObject.activeInHierarchy && item.gameObject != gameObject)
+        if(item.gameObject.activeInHierarchy)
         {
             return true;
         }
@@ -83,6 +82,7 @@ public class DisableIfChildrenInvisible : MonoBehaviour
     {
         ResetRigidBodyVelocity();        
         ResetTimer();
+        ResetPositions();
         gameObject.SetActive(false);
     }
     void ResetRigidBodyVelocity()
