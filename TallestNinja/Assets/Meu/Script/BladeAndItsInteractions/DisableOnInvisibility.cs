@@ -5,6 +5,7 @@ using UnityEngine;
 public class DisableOnInvisibility : MonoBehaviour
 {
     bool isVisible = true;
+    bool itHasAppeared = false;
     [SerializeField] float timeToDestroyOnInvisibility = 0.5f;
     float timeToDestroyOnInvisibilityCounter;
     [SerializeField] bool reportIfDisabled = false;
@@ -14,15 +15,25 @@ public class DisableOnInvisibility : MonoBehaviour
     }
     private void OnBecameVisible()
     {
+        itHasAppeared = true;
+        isVisible = true;
+    }
+    void Start()
+    {
         isVisible = true;
     }
     private void OnEnable()
     {
         timeToDestroyOnInvisibilityCounter = timeToDestroyOnInvisibility;
+        itHasAppeared = false;
+    }
+    private void OnDisable() 
+    {
+        itHasAppeared = false;
     }
     void Update()
     {
-        if(!isVisible)
+        if(!isVisible && itHasAppeared)
         {
             CountDown();
         }
@@ -31,6 +42,7 @@ public class DisableOnInvisibility : MonoBehaviour
             if(reportIfDisabled)
             {
                 GameManager.Instance.FruitFallen();
+                Debug.Log("bruh");
             }
             gameObject.SetActive(false);
         }

@@ -5,11 +5,26 @@ using UnityEngine;
 public class ComboCounter : MonoBehaviour
 {
     [SerializeField] int fruitsNeededForCombo;
-    GameManager gameManager;
     int fruitsHitOnARow;
+    public static ComboCounter Instance;
     private void Start() 
     {
-        gameManager = GetComponent<GameManager>();
+        if(ThereIsNoGameManagerSingleton())
+        {
+            InstantiateGameManagerSingleton();
+        }
+        else
+        {
+            Destroy(this);
+        }    
+    }
+    bool ThereIsNoGameManagerSingleton()
+    {
+        return Instance == null;
+    }
+    void InstantiateGameManagerSingleton()
+    {
+        Instance = this;
     }
     public void FruitHit()
     {
@@ -39,7 +54,7 @@ public class ComboCounter : MonoBehaviour
     }
     void CallInCombo()
     {
-        gameManager.AskForAPowerUp();
+        GameManager.Instance.AskForAPowerUp();
         Debug.Log("combo");
     }
 }

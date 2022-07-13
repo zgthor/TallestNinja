@@ -12,7 +12,7 @@ public class SoundManager : MonoBehaviour
         if(ThereIsNoGameManagerSingleton())
         {
             InstantiateGameManagerSingleton();
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -27,7 +27,6 @@ public class SoundManager : MonoBehaviour
     {
         Instance = this;
     }
-    
     public void PlaySound(AudioClip clip)
     {
         effectsSource.PlayOneShot(clip);

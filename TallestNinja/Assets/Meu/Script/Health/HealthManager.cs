@@ -6,20 +6,29 @@ public class HealthManager : MonoBehaviour
 {
     [SerializeField] int maxHealth;
     int health;
-    [SerializeField] UIManager uIManager;
-    GameManager gameManager;
     bool reported;
+    public static HealthManager Instance;
     void Start()
     {
-        GetClassComponents();
+        if(ThereIsNoGameManagerSingleton())
+        {
+            InstantiateGameManagerSingleton();
+        }
+        else
+        {
+            Destroy(this);
+        }
         UpdateToMaxHealth();
-        DisplayHealth(); 
+        DisplayHealth();
     }
-    void GetClassComponents()
+    bool ThereIsNoGameManagerSingleton()
     {
-        gameManager = GetComponent<GameManager>();
-        uIManager = GetComponent<UIManager>();
+        return Instance == null;
     }
+    void InstantiateGameManagerSingleton()
+    {
+        Instance = this;
+    } 
     void UpdateToMaxHealth()
     {
         health = maxHealth;
@@ -31,7 +40,7 @@ public class HealthManager : MonoBehaviour
         {
             if(!HasBeenReported())
             {
-                gameManager.OutOfHealth();
+                GameManager.Instance.OutOfHealth();
                 ToggleThisVoidOff();
             }
         }
@@ -54,7 +63,7 @@ public class HealthManager : MonoBehaviour
     }
     void DisplayHealth()
     {
-        uIManager.UpdateHealthUI(health.ToString());
+        UIManager.Instance.UpdateHealthUI(health.ToString());
     }
     void ToggleThisVoidOff()
     {

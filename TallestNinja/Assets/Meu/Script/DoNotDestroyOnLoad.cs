@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Endless : Spawner
+public class DoNotDestroyOnLoad : MonoBehaviour
 {
-    [SerializeField] float spawnTimer;
     void Start()
     {
-        spawnConditionMet = true;
+        DontDestroyOnLoad(gameObject);
     }
 }

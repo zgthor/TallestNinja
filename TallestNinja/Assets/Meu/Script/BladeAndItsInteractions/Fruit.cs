@@ -9,7 +9,6 @@ public class Fruit : HitableByRay
     [SerializeField] float force;
     [SerializeField] float forceRange;
     [SerializeField] int pointAmount;
-    GameManager myGameManager;
     GameObject instantiated;
     Rigidbody[] rgbdOnSliced;
     [SerializeField] GameObject bottomGameObject;
@@ -18,7 +17,6 @@ public class Fruit : HitableByRay
     {
         slicedFruitKey = GetKeyFromPool(slicedFruit);
         bottomSpriteKey = GetKeyFromPool(bottomGameObject);
-        GetComponents();
         hitByRay = false;
     }
     void OnEnable() 
@@ -28,10 +26,6 @@ public class Fruit : HitableByRay
     int GetKeyFromPool(GameObject objectToGetKey)
     {
         return ObjectPoolSpawner.Instance.GetKey(objectToGetKey);
-    }
-    void GetComponents()
-    {
-        myGameManager = FindObjectOfType<GameManager>();
     }
     public override void HitByRayOrCollider()
     {
@@ -77,18 +71,15 @@ public class Fruit : HitableByRay
     {
         foreach (Rigidbody rgdbd in rgbdOnSliced)
         {
-            Debug.Log(rgdbd.name);
             if(rgdbd != rgbdOnSliced[0])
             {
-                Debug.Log(rgdbd.name + "aaa");
                 rgdbd.transform.rotation = Random.rotation;
                 rgdbd.AddExplosionForce(Random.Range(force, force * forceRange), transform.position, 5f);
             }
-
         }
     }
     void UpdateScore()
     {
-        myGameManager.TriggerAlterationOfScore(pointAmount);
+        GameManager.Instance.TriggerAlterationOfScore(pointAmount);
     }
 }

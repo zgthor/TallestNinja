@@ -5,16 +5,27 @@ using UnityEngine;
 public class PointsManager : MonoBehaviour
 {
     public int Points { get;set; }
-    UIManager uIManager;
+    public static PointsManager Instance;
     private void Start()
     {
-        GetUIComponent();
+        if(ThereIsNoGameManagerSingleton())
+        {
+            InstantiateGameManagerSingleton();
+        }
+        else
+        {
+            Destroy(this);
+        }
         GetAllPoints();
         SavePoints();
     }
-    void GetUIComponent()
+    bool ThereIsNoGameManagerSingleton()
     {
-        uIManager = gameObject.GetComponent<UIManager>();
+        return Instance == null;
+    }
+    void InstantiateGameManagerSingleton()
+    {
+        Instance = this;
     }
     private void GetAllPoints()
     {
@@ -42,6 +53,6 @@ public class PointsManager : MonoBehaviour
     }
     public void TellUItoDisplayPoints()
     {
-        uIManager.DisplayPoints(Points);
+        UIManager.Instance.DisplayPoints(Points);
     }
 }

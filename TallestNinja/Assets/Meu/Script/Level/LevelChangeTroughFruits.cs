@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class LevelChangeTroughFruits : Spawner
 {
-    [SerializeField] float spawnTimer;
     [SerializeField] float fruitAmount;
     [SerializeField] float fruitsPerLevel;
     void Start()

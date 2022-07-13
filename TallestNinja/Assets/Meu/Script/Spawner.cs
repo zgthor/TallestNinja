@@ -19,7 +19,6 @@ public class Spawner : MonoBehaviour
     [SerializeField] Vector3 spawnPosition;
     Rigidbody instantiatedRigidBody;
     public bool spawnConditionMet;
-    [SerializeField] GameManager gameManager;
 
     void Awake()
     {
@@ -88,7 +87,7 @@ public class Spawner : MonoBehaviour
     }
     void ReportThePoolingOfFruit()
     {
-        gameManager.FruitSpawned();
+        GameManager.Instance.FruitSpawned();
     }
     void PoolInBombFromPoolFromKey()
     {
@@ -123,5 +122,9 @@ public class Spawner : MonoBehaviour
     void PoolInPowerUpFromPoolFromKey()
     {
         instantiated = ObjectPoolSpawner.Instance.GetObjectFromPool(powerUpKeys[Random.Range(0, powerUpKeys.Count - 1)]);
+    }
+    public void DecreaseTimeToSpawnBy(float by)
+    {
+        timeToSpawn -= by;
     }
 }

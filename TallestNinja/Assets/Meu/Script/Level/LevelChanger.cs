@@ -5,41 +5,22 @@ using UnityEngine;
 
 
 public class LevelChanger : MonoBehaviour
-{
-    LevelManager levelManager;
-    enum LevelChangeTrough
-    {
-        Time,
-        AmountOfFruits,
-        ItDoesNotChange
-    }
-    [Header("Settings")]
-    [SerializeField]
-    LevelChangeTrough levelChangeTrough;
-
-    [Header("Trough Timer")]
-    public float secondsBeforeLevelChange;
-
-    [Header("Trough Fruits")]
-    public float fruitsBeforeLevelChange;
-    
+{    
     void Start()
     {
-        levelManager = gameObject.GetComponent<LevelManager>();
-        /*switch(levelChangeTrough)
+        switch(((int)GameManager.Instance.gameMode.GetLevelChangeTrough()))
         {
-            case LevelChangeTrough.Time:
+            case 1: // change trough Timer
                 gameObject.AddComponent<LevelChangeTroughTime>();
             break;
 
-            case LevelChangeTrough.AmountOfFruits:
+            case 2:// change trough fruit Amount
                 gameObject.AddComponent<LevelChangeTroughFruits>();
             break;
-
-        }*/
+        }
     }
     public void IncreaseLevel()
     {
-        levelManager.IncreaseLevel();
+        LevelManager.Instance.IncreaseLevel();
     }
 }

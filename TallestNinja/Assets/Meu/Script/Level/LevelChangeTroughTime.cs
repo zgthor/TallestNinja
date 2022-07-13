@@ -25,7 +25,7 @@ public class LevelChangeTroughTime : MonoBehaviour
     }
     bool TimerReachedLimit()
     {
-        return levelChanger.secondsBeforeLevelChange <= levelTimer;
+        return GameManager.Instance.gameMode.GetSecondsBeforeLevelChange() <= levelTimer;
     }
     void ResetTimer()
     {

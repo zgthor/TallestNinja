@@ -5,26 +5,15 @@ public class GameManager : MonoBehaviour
 {
     public int score;
     public int highScore;
-    SlowDownTime timeManagementClass;
-    PointsManager pointsManager;
-    UIManager uIManager;
-    [SerializeField] GameObject blade;
+    public SlowDownTime slowDownTime;
+    public GameObject blade;
     public static GameManager Instance;
-    HealthManager healthManager;
+    public GameModeSettingsSO gameMode;
+    public Spawner spawner;
     bool losingSequenceStarted;
-    ComboCounter comboCounter;
-    enum GameMode
-    {
-        BetterDeadThanRed,
-        NoFallenFruit
-    }
-    [SerializeField] GameMode gameMode;
-    [SerializeField] Spawner spawner;    
 
     private void Start()
     {
-        GetClassComponents();
-        GetHighScore();
         if(ThereIsNoGameManagerSingleton())
         {
             InstantiateGameManagerSingleton();
@@ -33,6 +22,12 @@ public class GameManager : MonoBehaviour
         {
             Destroy(this);
         }
+        GetClassComponents();
+        GetHighScore();
+    }
+    void GameModeChosen(GameModeSettingsSO newGameMode)
+    {
+        gameMode = newGameMode;
     }
     bool ThereIsNoGameManagerSingleton()
     {
@@ -44,11 +39,7 @@ public class GameManager : MonoBehaviour
     }
     void GetClassComponents()
     {
-        pointsManager = GetComponent<PointsManager>();
-        timeManagementClass = GetComponent<SlowDownTime>();
-        uIManager = GetComponent<UIManager>();
-        healthManager = GetComponent<HealthManager>();
-        comboCounter = GetComponent<ComboCounter>();
+        slowDownTime = GetComponent<SlowDownTime>();
     }
     void GetHighScore()
     {
@@ -56,14 +47,14 @@ public class GameManager : MonoBehaviour
     }
     public void TriggerAlterationOfScore(int alteredPoints)
     {
-        comboCounter.FruitHit();
+        ComboCounter.Instance.FruitHit();
         AlterScore(alteredPoints);
         ShowScoreIncreaseOnUI();
         if(isCurrentScoreHigherThanHighestScore())
         {
             UpdateHighScoreValue();
             SaveNewHighScore();
-            uIManager.RemoveHighScoreText();
+            UIManager.Instance.RemoveHighScoreText();
         }
     }
     void AlterScore(int alteredPoints)
@@ -72,7 +63,7 @@ public class GameManager : MonoBehaviour
     }
     void ShowScoreIncreaseOnUI()
     {
-        uIManager.UpdateScore(score);
+        UIManager.Instance.UpdateScore(score);
     }
     bool isCurrentScoreHigherThanHighestScore()
     {
@@ -91,18 +82,18 @@ public class GameManager : MonoBehaviour
     {
         EnableSlowTime();
         AddScoreToPoints();
-        uIManager.StartLoosingSequence();
-        pointsManager.TellUItoDisplayPoints();
+        UIManager.Instance.StartLoosingSequence();
+        PointsManager.Instance.TellUItoDisplayPoints();
         DisableBlade();
-        uIManager.DisableLivingUI();
+        UIManager.Instance.DisableLivingUI();
     }
     void EnableSlowTime()
     {
-        timeManagementClass.enabled = true;
+        slowDownTime.enabled = true;
     }
     void AddScoreToPoints()
     {
-        pointsManager.ChangePointsAmountAndSaveIt(score);
+        PointsManager.Instance.ChangePointsAmountAndSaveIt(score);
     }
 
     void DisableBlade()
@@ -111,21 +102,21 @@ public class GameManager : MonoBehaviour
     }
     public void FruitFallen()
     {
-        if(gameMode == GameMode.NoFallenFruit)
+        if(gameMode.GetFruitsFallAsLoseCondition())
         {
-            healthManager.LoseHealth();
+            HealthManager.Instance.LoseHealth();
         }
         ResetCombo();
     }
     void ResetCombo()
     {
-        comboCounter.ComboLost();
+        ComboCounter.Instance.ComboLost();
     }
     public void BombTapped()
     {
-        if(gameMode == GameMode.BetterDeadThanRed)
+        if(gameMode.GetTouchBombsAsLoseCondition())
         {
-            healthManager.LoseHealth();
+            HealthManager.Instance.LoseHealth();
         }
         ResetCombo();
     }
@@ -135,7 +126,7 @@ public class GameManager : MonoBehaviour
     }
     public void LevelChanged(int level) 
     {
-        
+        UIManager.Instance.UpdateLevel(level);
     }
     public void FruitSpawned()
     {
@@ -147,6 +138,6 @@ public class GameManager : MonoBehaviour
     }
     public void HealthPickUp()
     {
-        healthManager.HealthPickedUp();
+        HealthManager.Instance.HealthPickedUp();
     }
 }

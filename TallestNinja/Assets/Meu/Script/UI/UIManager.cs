@@ -12,14 +12,33 @@ public class UIManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI HighScoreText;
     [SerializeField] TextMeshProUGUI pointsText;
     [SerializeField] TextMeshProUGUI healthText;
+    [SerializeField] TextMeshProUGUI currentLevelText;
+
     int highScore;
     List<GameObject> UIPanels = new List<GameObject>();
 
+    public static UIManager Instance;
     private void Start()
     {
+        if(ThereIsNoGameManagerSingleton())
+        {
+            InstantiateGameManagerSingleton();
+        }
+        else
+        {
+            Destroy(this);
+        }
         CleanScreenFromUIClutter();
         GetHighScore();
         DisplayHighScore();
+    }
+    bool ThereIsNoGameManagerSingleton()
+    {
+        return Instance == null;
+    }
+    void InstantiateGameManagerSingleton()
+    {
+        Instance = this;
     }
     void CleanScreenFromUIClutter()
     {
@@ -59,5 +78,9 @@ public class UIManager : MonoBehaviour
     public void StartLoosingSequence()
     {
         GameOverUI.SetActive(true);
+    }
+    public void UpdateLevel(int level)
+    {
+        currentLevelText.text = ("lvl: " + level);
     }
 }
