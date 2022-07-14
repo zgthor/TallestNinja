@@ -13,8 +13,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI pointsText;
     [SerializeField] TextMeshProUGUI healthText;
     [SerializeField] TextMeshProUGUI currentLevelText;
-
+    [SerializeField] TextMeshProUGUI comboCounterText;
     int highScore;
+    int maxCombo;
     List<GameObject> UIPanels = new List<GameObject>();
 
     public static UIManager Instance;
@@ -55,6 +56,11 @@ public class UIManager : MonoBehaviour
     {
         HighScoreText.text = "Best: " + highScore.ToString();
     }
+    public void ReceiveMaxCombo(int max)
+    {
+        maxCombo = max;
+        UpdateCombo(0);
+    }
     public void UpdateScore(int score)
     {
         scoreText.text = score.ToString();
@@ -82,5 +88,9 @@ public class UIManager : MonoBehaviour
     public void UpdateLevel(int level)
     {
         currentLevelText.text = ("lvl: " + level);
+    }
+    public void UpdateCombo(int counter)
+    {
+        comboCounterText.text = (counter + " / " + maxCombo);
     }
 }

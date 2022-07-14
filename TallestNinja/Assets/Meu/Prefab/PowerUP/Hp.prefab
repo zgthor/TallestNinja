@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3212258638619935954}
   - component: {fileID: 4791771826622443254}
   - component: {fileID: -1003140442896657059}
+  - component: {fileID: -720144091836690891}
   m_Layer: 0
   m_Name: Hp
   m_TagString: Untagged
@@ -144,3 +145,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clip:
   - {fileID: 8300000, guid: 1ead127b7bd172145916ddd21b6a7c35, type: 3}
+--- !u!114 &-720144091836690891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1556335158725043520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2eb0f22556eecd439826c8c2860e3f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offsetAsViewPort: 0.2
+  reportIfDisabled: 0

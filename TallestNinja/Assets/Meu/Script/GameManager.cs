@@ -148,7 +148,6 @@ public class GameManager : MonoBehaviour
     }
     public GameModeSettingsSO GetCurrentGameMode()
     {
-        Debug.Log("1" + gameMode.name);
         return gameMode;
     }
 }
