@@ -9,31 +9,45 @@ public class DisableOnInvisibility : MonoBehaviour
     [SerializeField] float timeToDestroyOnInvisibility = 0.5f;
     float timeToDestroyOnInvisibilityCounter;
     [SerializeField] bool reportIfDisabled = false;
+    int i;
     private void OnBecameInvisible()
     {
         isVisible = false;
     }
+
     private void OnBecameVisible()
     {
-        itHasAppeared = true;
-        isVisible = true;
-    }
+        if(Camera.current == Camera.main)
+        {
+            itHasAppeared = true;
+            isVisible = true;
+        }
+    }   
     void Start()
     {
-        isVisible = true;
+        ResetVariables();
     }
     private void OnEnable()
     {
-        timeToDestroyOnInvisibilityCounter = timeToDestroyOnInvisibility;
-        itHasAppeared = false;
+        ResetVariables();
     }
     private void OnDisable() 
     {
+        ResetVariables();
+    }
+    void ResetVariables()
+    {
         itHasAppeared = false;
+        timeToDestroyOnInvisibilityCounter = timeToDestroyOnInvisibility;
+        isVisible = true;
     }
     void Update()
     {
-        if(!isVisible && itHasAppeared)
+        if(!itHasAppeared)
+        {
+            return;
+        }
+        if(!isVisible)
         {
             CountDown();
         }
@@ -42,7 +56,7 @@ public class DisableOnInvisibility : MonoBehaviour
             if(reportIfDisabled)
             {
                 GameManager.Instance.FruitFallen();
-                Debug.Log("bruh");
+                itHasAppeared = false;
             }
             gameObject.SetActive(false);
         }

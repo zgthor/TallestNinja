@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBombsSpawn: 1
   canFruitsSpawn: 1
-  secondsToSpawn: 0
-  chanceOfBomb: 0
-  levelChangeTrough: 0
-  secondsBeforeLevelChange: 0
+  secondsToSpawn: 0.3
+  chanceOfBomb: 50
+  levelChangeTrough: 1
+  secondsBeforeLevelChange: 5
   fruitsBeforeLevelChange: 0
   allowSpecialLevels: 0
-  comboRequirementForBoost: 0
-  difficultyIncreasePerLevel: 0
-  maxHealth: 0
-  FruitsFall: 1
-  TouchBombs: 0
+  comboRequirementForBoost: 25
+  difficultyIncreasePerLevel: 5
+  maxHealth: 3
+  FruitsFall: 0
+  TouchBombs: 1

@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 public class GameManager : MonoBehaviour
 {
-    public int score;
-    public int highScore;
+    [HideInInspector] public int score;
+    [HideInInspector] public int highScore;
     public SlowDownTime slowDownTime;
     public GameObject blade;
     public static GameManager Instance;
