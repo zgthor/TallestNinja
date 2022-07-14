@@ -1732,7 +1732,19 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1797398709}
+        m_TargetAssemblyTypeName: SelectedGameModeCarrier, Assembly-CSharp
+        m_MethodName: ReceiveGameModeSettingsSO
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: f984159bf9328054b8481216f30ad33d, type: 2}
+          m_ObjectArgumentAssemblyTypeName: GameModeSettingsSO, Assembly-CSharp
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2103,6 +2115,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1797398709}
+        m_TargetAssemblyTypeName: SelectedGameModeCarrier, Assembly-CSharp
+        m_MethodName: ReceiveGameModeSettingsSO
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 006863a04ce9d8645a76d0be8433ae3f, type: 2}
+          m_ObjectArgumentAssemblyTypeName: GameModeSettingsSO, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1334500789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2167,7 +2191,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6750918412721833344, guid: f8729578f4fd0d543929088cf27ef2c5, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6750918412721833344, guid: f8729578f4fd0d543929088cf27ef2c5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2677,8 +2701,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1797398707}
   - component: {fileID: 1797398708}
+  - component: {fileID: 1797398709}
+  - component: {fileID: 1797398710}
   m_Layer: 0
-  m_Name: BetweenScenesMessager
+  m_Name: BetweenScenesMessenger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2710,6 +2736,31 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb2fd2761baee2d488064f10becf013e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1797398709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797398706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 445189c9a23618340833af9eb4ce5a2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedGameMode: {fileID: 0}
+--- !u!114 &1797398710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797398706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a321185f368624842afcd3144ba4fa8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1802498632

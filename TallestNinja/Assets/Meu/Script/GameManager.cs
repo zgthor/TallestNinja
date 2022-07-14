@@ -7,8 +7,8 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public int highScore;
     public SlowDownTime slowDownTime;
     public GameObject blade;
-    public static GameManager Instance;
-    public GameModeSettingsSO gameMode;
+    [HideInInspector] public static GameManager Instance;
+    [HideInInspector] public GameModeSettingsSO gameMode;
     public Spawner spawner;
     bool losingSequenceStarted;
 
@@ -22,12 +22,10 @@ public class GameManager : MonoBehaviour
         {
             Destroy(this);
         }
+        GetMessages();
+        GetGameMode();
         GetClassComponents();
         GetHighScore();
-    }
-    void GameModeChosen(GameModeSettingsSO newGameMode)
-    {
-        gameMode = newGameMode;
     }
     bool ThereIsNoGameManagerSingleton()
     {
@@ -37,6 +35,14 @@ public class GameManager : MonoBehaviour
     {
         Instance = this;
     }
+    void GetMessages()
+    {
+        Messenger.Instance.GetMessengerGameObject();
+    }
+    void GetGameMode()
+    {
+        gameMode = SelectedGameModeCarrier.Instance.GetSelectedGameMode();
+    }
     void GetClassComponents()
     {
         slowDownTime = GetComponent<SlowDownTime>();
@@ -44,6 +50,10 @@ public class GameManager : MonoBehaviour
     void GetHighScore()
     {
         highScore = PlayerPrefs.GetInt("HighScore");
+    }
+    void GameModeChosen(GameModeSettingsSO newGameMode)
+    {
+        gameMode = newGameMode;
     }
     public void TriggerAlterationOfScore(int alteredPoints)
     {
