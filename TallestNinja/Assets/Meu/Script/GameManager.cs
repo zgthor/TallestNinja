@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     bool losingSequenceStarted;
 
 
-    private void Start()
+    private void Awake()
     {
         if(ThereIsNoGameManagerSingleton())
         {
@@ -145,5 +145,10 @@ public class GameManager : MonoBehaviour
     public void HealthPickUp()
     {
         HealthManager.Instance.HealthPickedUp();
+    }
+    public GameModeSettingsSO GetCurrentGameMode()
+    {
+        Debug.Log("1" + gameMode.name);
+        return gameMode;
     }
 }

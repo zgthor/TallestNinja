@@ -13,8 +13,6 @@ public class GameModeSettingsSO : ScriptableObject
     }
 
     [Header("Spawns")]
-    [SerializeField] bool canBombsSpawn;
-    [SerializeField] bool canFruitsSpawn;
     [SerializeField] float secondsToSpawn;
     [SerializeField] float chanceOfBomb;
 
@@ -36,14 +34,6 @@ public class GameModeSettingsSO : ScriptableObject
     [SerializeField] bool FruitsFall;
     [SerializeField] bool TouchBombs;
     #region GetSpawns
-    public bool GetCanBombSpawn()
-    {
-        return canBombsSpawn;
-    }
-    public bool GetCanFruitSpawn()
-    {
-        return canFruitsSpawn;
-    }
     public float GetSpawnFrequency()
     {
         return secondsToSpawn;

@@ -1500,7 +1500,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.86911404, y: 1}
+    m_SensorSize: {x: 1.0750246, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1765,7 +1765,6 @@ GameObject:
   - component: {fileID: 1878096977}
   - component: {fileID: 1878096976}
   - component: {fileID: 1878096978}
-  - component: {fileID: 1878096979}
   - component: {fileID: 1878096980}
   m_Layer: 0
   m_Name: GameManager
@@ -1803,12 +1802,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   highScore: 0
-  timeManagementClass: {fileID: 0}
-  pointsManager: {fileID: 0}
-  uIManager: {fileID: 0}
+  slowDownTime: {fileID: 0}
   blade: {fileID: 1869784263}
-  healthManager: {fileID: 0}
-  comboCounter: {fileID: 0}
   gameMode: {fileID: 11400000, guid: 006863a04ce9d8645a76d0be8433ae3f, type: 2}
   spawner: {fileID: 1522492724}
 --- !u!114 &1878096969
@@ -1914,9 +1909,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d2f4fbd5bcce0b4e967711410d5c0d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelChangeTrough: 0
-  secondsBeforeLevelChange: 3
-  fruitsBeforeLevelChange: 0
 --- !u!114 &1878096977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1943,19 +1935,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
-  uIManager: {fileID: 1878096972}
---- !u!114 &1878096979
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1878096966}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6343c442b7837de408d5ea79d2105e72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1878096980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2192,7 +2171,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10.470433
+  orthographic size: 9
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

@@ -7,8 +7,8 @@ public class Spawner : MonoBehaviour
     [SerializeField] GameObject[] fruitsToSpawn = new GameObject[]{};    
     [SerializeField] GameObject[] bombsToSpawn = new GameObject[] { };
     [SerializeField] GameObject[] powerUpsToSpawn = new GameObject[]{};
-    [SerializeField] float chanceOfBomb;    
-    public float timeToSpawn;
+    float chanceOfBomb;    
+    [HideInInspector] public float timeToSpawn;
     protected float timer;
     [SerializeField] float force;
     [SerializeField] float forceRange;
@@ -19,18 +19,14 @@ public class Spawner : MonoBehaviour
     [SerializeField] Vector3 spawnPosition;
     Rigidbody instantiatedRigidBody;
     public bool spawnConditionMet;
+    GameModeSettingsSO currentGameMode;
 
-    void Awake()
-    {
-        ResetTimer();        
-    }
-    void ResetTimer()
-    {
-        timer = timeToSpawn;
-    }
     void Start()
     {
         CreatePoolAndGetPoolKey();
+        GetGameModeConfig();
+        ApplyConfig();
+        ResetTimer(); 
     }
     void CreatePoolAndGetPoolKey()
     {
@@ -46,6 +42,19 @@ public class Spawner : MonoBehaviour
         {
             powerUpKeys.Add(ObjectPoolSpawner.Instance.GetKey(powerUpsToSpawn[i]));
         }
+    }
+    void GetGameModeConfig()
+    {
+        currentGameMode = GameManager.Instance.GetCurrentGameMode();
+    }
+    void ApplyConfig()
+    {
+        chanceOfBomb = currentGameMode.GetChanceOfBomb();
+        timeToSpawn = currentGameMode.GetSpawnFrequency();
+    }
+    void ResetTimer()
+    {
+        timer = timeToSpawn;
     }
     void Update()
     {   // this will spawn stuff after a timer

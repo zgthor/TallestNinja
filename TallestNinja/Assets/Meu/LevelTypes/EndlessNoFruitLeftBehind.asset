@@ -12,11 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1844c65e4e0b55d4d9fc9ac0b641048f, type: 3}
   m_Name: EndlessNoFruitLeftBehind
   m_EditorClassIdentifier: 
-  canBombsSpawn: 0
-  canFruitsSpawn: 1
   secondsToSpawn: 0.8
   chanceOfBomb: 0
-  levelChangeTrough: 0
+  levelChangeTrough: 1
   secondsBeforeLevelChange: 3
   fruitsBeforeLevelChange: 0
   allowSpecialLevels: 0
