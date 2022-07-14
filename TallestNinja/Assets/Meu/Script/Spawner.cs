@@ -121,7 +121,6 @@ public class Spawner : MonoBehaviour
     }
     public void SpawnAPowerUp()
     {
-        Debug.Log("spawnOne");
         PoolInPowerUpFromPoolFromKey();
         SetInstantiatedPosition();
         ActivateInstantiatedGameObject();

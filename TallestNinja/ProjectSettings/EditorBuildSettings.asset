@@ -6,12 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Game/MainMenu 1.unity
+    path: Assets/Meu/Scenes/Game/MainMenu 1.unity
     guid: 36264ce2d928bb74397536dedac84b33
   - enabled: 1
-    path: Assets/Scenes/Game/AvoidTheRed.unity
-    guid: 14eb3b8793716b6498ce9db3711fa67d
-  - enabled: 1
-    path: Assets/Scenes/Game/NoFruitLeftBehind.unity
+    path: Assets/Meu/Scenes/Game/GameScene.unity
     guid: 803988a6566477f46aad3f15215025e2
   m_configObjects: {}

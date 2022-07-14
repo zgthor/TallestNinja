@@ -63,7 +63,6 @@ public class ComboCounter : MonoBehaviour
     void CallInCombo()
     {
         GameManager.Instance.AskForAPowerUp();
-        Debug.Log("combo");
     }
     void SendUIManagerMaxCombo()
     {
