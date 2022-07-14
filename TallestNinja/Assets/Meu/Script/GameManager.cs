@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public Spawner spawner;
     bool losingSequenceStarted;
 
+
     private void Start()
     {
         if(ThereIsNoGameManagerSingleton())
@@ -22,7 +23,6 @@ public class GameManager : MonoBehaviour
         {
             Destroy(this);
         }
-        GetMessages();
         GetGameMode();
         GetClassComponents();
         GetHighScore();
@@ -34,10 +34,6 @@ public class GameManager : MonoBehaviour
     void InstantiateGameManagerSingleton()
     {
         Instance = this;
-    }
-    void GetMessages()
-    {
-        Messenger.Instance.GetMessengerGameObject();
     }
     void GetGameMode()
     {

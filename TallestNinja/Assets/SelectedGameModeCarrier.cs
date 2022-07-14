@@ -8,20 +8,20 @@ public class SelectedGameModeCarrier : MonoBehaviour
     GameModeSettingsSO selectedGameMode;
     private void Start()
     {
-        if(ThereIsNoGameManagerSingleton())
+        if(ThereIsNoGameModeCarrierSingleton())
         {
-            InstantiateGameManagerSingleton();
+            InstantiateGameModeCarrierSingleton();
         }
         else
         {
             Destroy(this);
         }
     }
-    bool ThereIsNoGameManagerSingleton()
+    bool ThereIsNoGameModeCarrierSingleton()
     {
         return Instance == null;
     }
-    void InstantiateGameManagerSingleton()
+    void InstantiateGameModeCarrierSingleton()
     {
         Instance = this;
     }
