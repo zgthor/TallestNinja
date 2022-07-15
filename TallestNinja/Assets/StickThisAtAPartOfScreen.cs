@@ -32,7 +32,6 @@ public class StickThisAtAPartOfScreen : MonoBehaviour
             yield return new WaitForSeconds(setItAfterSeconds);
         }
         while(timesToLoop > 0 || loopForever);
-        Debug.Log(this.name);
         StopCoroutine(WaitingForSeconds());
     }
 }
