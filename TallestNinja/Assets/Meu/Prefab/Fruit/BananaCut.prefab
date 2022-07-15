@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3667045119740171640}
   - component: {fileID: 2737935059655576180}
-  - component: {fileID: 5268778296594516066}
   - component: {fileID: 7085347474240589997}
   m_Layer: 0
   m_Name: BananaCut
@@ -114,20 +113,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 72
   m_CollisionDetection: 1
---- !u!114 &5268778296594516066
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3667045119740171643}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4119538dd28cee44bc0fa50fa8d28b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeToDestroyOnInvisibility: 0.5
-  reportIfDisabled: 0
 --- !u!114 &7085347474240589997
 MonoBehaviour:
   m_ObjectHideFlags: 0

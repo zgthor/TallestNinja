@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public GameModeSettingsSO gameMode;
     public Spawner spawner;
     bool losingSequenceStarted;
+    public float playableArea;
 
 
     private void Awake()
@@ -149,5 +150,9 @@ public class GameManager : MonoBehaviour
     public GameModeSettingsSO GetCurrentGameMode()
     {
         return gameMode;
+    }
+    public float GetPlayableArea()
+    {
+        return playableArea;
     }
 }

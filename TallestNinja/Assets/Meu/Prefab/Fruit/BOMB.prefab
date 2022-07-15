@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 7992367993246175831}
   - component: {fileID: -8235575392396402110}
   - component: {fileID: -6875459876701930505}
-  - component: {fileID: 7863793396631113696}
   m_Layer: 0
   m_Name: BOMB
   m_TagString: FruitOrBomb
@@ -145,17 +144,3 @@ MonoBehaviour:
   - {fileID: 8300000, guid: af0e6fa4361e9fe46a45bcd9b4a6c092, type: 3}
   - {fileID: 8300000, guid: af67f455f162bc74eae63325a097f068, type: 3}
   - {fileID: 8300000, guid: 99221d73abc889b4d9b7d827877a8b7a, type: 3}
---- !u!114 &7863793396631113696
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1852036972636356167}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2eb0f22556eecd439826c8c2860e3f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  offsetAsViewPort: 0.1
-  reportIfDisabled: 0

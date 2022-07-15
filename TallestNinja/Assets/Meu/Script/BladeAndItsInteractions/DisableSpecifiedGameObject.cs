@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class DisableSpecifiedGameObject : MonoBehaviour
 {
-    [SerializeField] GameObject[] gameObjectsToDestroy;
+    [SerializeField] GameObject[] gameObjectsToDisable;
     List<string> gameObjectsNames = new List<string>();
     string alteredName;
     [SerializeField] GameObject objectToReport;
     void Start()
     {
-        foreach(GameObject part in gameObjectsToDestroy)
+        foreach(GameObject part in gameObjectsToDisable)
         {
             gameObjectsNames.Add(part.name);
         }
