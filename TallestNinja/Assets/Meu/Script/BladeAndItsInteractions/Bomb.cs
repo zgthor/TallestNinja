@@ -18,5 +18,4 @@ public class Bomb : HitableByRay
     {
         GameManager.Instance.BombTapped();
     }
-
 }

@@ -17,12 +17,8 @@ public class Fruit : HitableByRay
     {
         slicedFruitKey = GetKeyFromPool(slicedFruit);
         bottomSpriteKey = GetKeyFromPool(bottomGameObject);
-        hitByRay = false;
     }
-    void OnEnable() 
-    {
-        hitByRay = false;
-    }
+
     int GetKeyFromPool(GameObject objectToGetKey)
     {
         return ObjectPoolSpawner.Instance.GetKey(objectToGetKey);
@@ -34,14 +30,13 @@ public class Fruit : HitableByRay
             return;
         }
         hitByRay = true;
-        base.HitByRayOrCollider();
         InstantiateObjectFromPool(slicedFruitKey);
         SetPositionOfInstantiatedObjectFromPool();
         GetRigidbodyArrayOfInstantiatedObject();
         MakeAnExplosiveMotionForRigidbodies();
         instantiated.SetActive(true);
         UpdateScore();
-        gameObject.SetActive(false);
+        base.HitByRayOrCollider();
     }
     public override void TargetObject()
     {

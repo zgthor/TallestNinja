@@ -7,7 +7,7 @@ public class HealthPickUp : PowerUp
     GameManager gameManager;
     protected override void PowerUpTaken()
     {
-        gameManager = FindObjectOfType<GameManager>();
-        gameManager.HealthPickUp();
+        GameManager.Instance.HealthPickUp();
+        base.PowerUpTaken();
     }
 }

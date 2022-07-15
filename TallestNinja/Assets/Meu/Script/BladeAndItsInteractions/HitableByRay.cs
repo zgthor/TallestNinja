@@ -10,6 +10,7 @@ public class HitableByRay : MonoBehaviour
     {
         playSound = gameObject.GetComponent<PlaySound>();
         playSound.PlaySoundFromList();
+        gameObject.SetActive(false);
     }
     public virtual void TargetObject()
     {
@@ -26,5 +27,13 @@ public class HitableByRay : MonoBehaviour
         {
             TargetObject();
         }
+    }
+    void Start()
+    {
+        hitByRay = false;
+    }
+    private void OnEnable() 
+    {
+        hitByRay = false;
     }
 }
