@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2757792092255993892}
   - component: {fileID: 2757792092255993893}
   - component: {fileID: 2757792092255993895}
+  - component: {fileID: 2757792092248799674}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -25,9 +26,10 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2757792092255993891}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 13.31, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -48,13 +50,13 @@ MonoBehaviour:
   - {fileID: 7456508117982770973, guid: 26844cd51fdcf45448e5c034dbd1881a, type: 3}
   bombsToSpawn:
   - {fileID: 1852036972636356167, guid: d8c2bd835b8bfef469459240eec05472, type: 3}
-  powerUpsToSpawn: []
-  chanceOfBomb: 50
-  timeToSpawn: 0.1
+  powerUpsToSpawn:
+  - {fileID: 1556335158725043520, guid: 83d45d314e155ab42900ba79e1be1098, type: 3}
+  timeToSpawn: 0.8
   force: -500
   forceRange: 2
-  pooler: {fileID: 2757792092255993895}
-  spawnPosition: {x: 12, y: 12, z: 0}
+  spawnPosition: {x: 9.5, y: 30, z: 0}
+  spawnConditionMet: 1
 --- !u!114 &2757792092255993895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,4 +69,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ee71b8ad104b7f4eb9a4bd16b7f0d1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolSize: 18
+  poolSize: 10
+--- !u!114 &2757792092248799674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2757792092255993891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65c5af3e45fbd32488bee7217d78bcc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yPosition: 0.15
+  xPosition: 0.5
+  setItAfterSeconds: 1
+  timesToLoop: 4
+  loopForever: 0

@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI healthText;
     [SerializeField] TextMeshProUGUI currentLevelText;
     [SerializeField] TextMeshProUGUI comboCounterText;
+    [SerializeField] TextMeshProUGUI finalScore;
     int highScore;
     int maxCombo;
     List<GameObject> UIPanels = new List<GameObject>();
@@ -92,5 +93,9 @@ public class UIManager : MonoBehaviour
     public void UpdateCombo(int counter)
     {
         comboCounterText.text = (counter + " / " + maxCombo);
+    }
+    public void DisplayFinalScore(int score)
+    {
+        finalScore.text = "Final Score: " + score;
     }
 }

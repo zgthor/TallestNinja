@@ -26,9 +26,10 @@ public class StickThisAtAPartOfScreen : MonoBehaviour
     {
         do
         {
-            yield return new WaitForSeconds(setItAfterSeconds);
             GetScreenBottom();
             SetItAtScreensBottom();
+            timesToLoop--;
+            yield return new WaitForSeconds(setItAfterSeconds);
         }
         while(timesToLoop > 0 || loopForever);
         Debug.Log(this.name);

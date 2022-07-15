@@ -91,6 +91,7 @@ public class GameManager : MonoBehaviour
         AddScoreToPoints();
         UIManager.Instance.StartLoosingSequence();
         PointsManager.Instance.TellUItoDisplayPoints();
+        UIManager.Instance.DisplayFinalScore(score);
         DisableBlade();
         UIManager.Instance.DisableLivingUI();
     }
@@ -102,7 +103,6 @@ public class GameManager : MonoBehaviour
     {
         PointsManager.Instance.ChangePointsAmountAndSaveIt(score);
     }
-
     void DisableBlade()
     {
         blade.SetActive(false);
