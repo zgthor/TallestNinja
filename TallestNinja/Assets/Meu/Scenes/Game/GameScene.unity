@@ -1224,7 +1224,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2757792092255993893, guid: 1923ddf1c2048c841a62614181ab0e13, type: 3}
   m_PrefabInstance: {fileID: 2757792092248799672}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2757792092248799673}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65d9f95a75306f34caeceac71a7eb59e, type: 3}
@@ -1623,7 +1623,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.75, y: 1}
+    m_SensorSize: {x: 0.6, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1934,8 +1934,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65c5af3e45fbd32488bee7217d78bcc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: -0.1
+  yPosition: -0.1
+  xPosition: 0.5
   setItAfterSeconds: 3
+  timesToLoop: 0
+  loopForever: 0
 --- !u!114 &1912262426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2244,7 +2247,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 12.133334
+  orthographic size: 15.166667
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2814,3 +2817,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1923ddf1c2048c841a62614181ab0e13, type: 3}
+--- !u!1 &2757792092248799673 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2757792092255993891, guid: 1923ddf1c2048c841a62614181ab0e13, type: 3}
+  m_PrefabInstance: {fileID: 2757792092248799672}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2757792092248799674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2757792092248799673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65c5af3e45fbd32488bee7217d78bcc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yPosition: 0.15
+  xPosition: 0.5
+  setItAfterSeconds: 1
+  timesToLoop: 4
+  loopForever: 0
