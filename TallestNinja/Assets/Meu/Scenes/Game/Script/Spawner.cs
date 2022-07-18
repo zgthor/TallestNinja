@@ -92,7 +92,7 @@ public class Spawner : MonoBehaviour
     }
     void SetInstantiatedPosition()
     {
-        instantiated.transform.position = new Vector3(Random.Range(-spawnPosition.x, spawnPosition.x), spawnPosition.y, spawnPosition.z);
+        instantiated.transform.position = new Vector3(Random.Range(-spawnPosition.x, spawnPosition.x), transform.position.y, spawnPosition.z);
     }
     void ReportThePoolingOfFruit()
     {
